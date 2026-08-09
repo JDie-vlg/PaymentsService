@@ -1,0 +1,35 @@
+[project]
+name = "candidate_service"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "JDie-vlg", email = "vzlet98987@gmail.com" }
+]
+requires-python = ">=3.14"
+dependencies = [
+    "alembic>=1.19.0",
+    "asyncpg>=0.31.0",
+    "fastapi[standard]>=0.141.1",
+    "prometheus-client>=0.26.0",
+    "pydantic>=2.13.4",
+    "structlog>=26.1.0",
+    "uvicorn>=0.52.1",
+]
+
+[project.scripts]
+candidate_service = "candidate_service.main:main"
+
+[build-system]
+requires = ["uv_build>=0.12.1,<0.13.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "pytest>=9.1.1",
+    "pytest-asyncio>=1.4.0",
+]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["src/tests"]
